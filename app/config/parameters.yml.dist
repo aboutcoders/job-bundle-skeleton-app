@@ -17,3 +17,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    #Supervisord config
+    supervisor_host: 127.0.0.1
+    supervisor_username: testjob
+    supervisor_password: 12345
+    supervisor_port: 9001

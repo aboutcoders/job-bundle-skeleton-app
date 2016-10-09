@@ -53,7 +53,8 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #     path:     "%database_path%"
-
+        types:
+          abc.job.status: Abc\Bundle\JobBundle\Doctrine\Types\StatusType
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -66,3 +67,30 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+nelmio_api_doc:
+  name: Job bundle testapp
+
+yz_supervisor:
+    default_environment: dev
+    servers:
+        dev:
+            localhost:
+                host:     "%supervisor_host%"
+                username: "%supervisor_username%"
+                password: "%supervisor_password%"
+                port:     "%supervisor_port%"
+
+bernard:
+    driver: file
+    options:
+        directory: %kernel.cache_dir%/bernard
+
+abc_scheduler:
+  db_driver: orm
+
+abc_job:
+  adapter: bernard
+
+abc_resource_lock:
+  db_driver: orm

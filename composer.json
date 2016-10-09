@@ -27,7 +27,13 @@
         "symfony/polyfill-apcu": "^1.0",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
-        "incenteev/composer-parameter-handler": "^2.0"
+        "incenteev/composer-parameter-handler": "^2.0",
+        "jms/serializer-bundle": "~1.1",
+        "friendsofsymfony/rest-bundle": "^2.0",
+        "bernard/bernard-bundle": "dev-master",
+        "aboutcoders/supervisor-command-bundle": "~0.1",
+        "aboutcoders/job-bundle": "dev-master",
+        "symfony/assetic-bundle": "^2.8"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -59,5 +65,7 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

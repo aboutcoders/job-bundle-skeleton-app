@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    demo_job:
+        class: AppBundle\Job\DemoJob
+        tags:
+            -  { name: "abc.job", type: "say_hello", method: "sayHello" }
+    scheduled_job:
+        class: AppBundle\Job\DemoJob
+        tags:
+            -  { name: "abc.job", type: "scheduled_hello", method: "sayHello" }

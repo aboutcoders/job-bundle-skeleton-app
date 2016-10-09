@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+    db:
+        image: mariadb:latest
+        expose:
+            - 3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: jobdemo
+            MYSQL_USER: jobdemo
+            MYSQL_PASSWORD: jobdemopass
+    php:
+        build: docker/php7-fpm
+        expose:
+            - 9000
+        links:
+            - db:mysqldb
+        volumes:
+            - ./:/var/www/jobdemo
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: myadmin
+        environment:
+         - PMA_ARBITRARY=1
+         - PMA_HOST=db
+         - PMA_USER=jobdemo
+         - PMA_PASSWORD=jobdemopass
+        restart: always
+        ports:
+         - 12381:80
+        volumes:
+         - /sessions
+    nginx:
+        build:
+          context: docker/nginx
+          args:
+            server_name: jobdemo.dev
+        ports:
+            - 12380:80
+        links:
+            - php
+        volumes_from:
+            - php
+        volumes:
+            - ./var/logs/nginx/:/var/log/nginx
