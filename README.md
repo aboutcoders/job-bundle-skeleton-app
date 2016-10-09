@@ -52,9 +52,8 @@ There is MariaDB available and configured for this project
 * You can find [PhpMyAdmin](http://localhost:12381/) at `http://localhost:12381/`
 
 ##### RestAPI
-There is MariaDB available and configured for this project
 
-* You can find [PhpMyAdmin](http://localhost:12380/api/doc) at `http://localhost:12380/api/doc`
+* You can find [REST API doc](http://localhost:12380/api/doc) at `http://localhost:12380/api/doc`
 
 #####  Background AbcJobBundle jobs
 For background job processing we use [AbcJobBundle](https://github.com/aboutcoders/job-bundle)
